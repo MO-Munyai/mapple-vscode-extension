@@ -1,384 +1,65 @@
-# Mapple VS Code Extension
+# mapple-language-support README
 
-VS Code language support for the Mapple Programming Language (MPPL).
+This is the README for your extension "mapple-language-support". After writing up a brief description, we recommend including the following sections.
 
-## Purpose
+## Features
 
-This repository contains the Visual Studio Code extension for Mapple.
+Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
 
-The goal is to provide a first-class development experience for `.mp` files, including:
+For example if there is an image subfolder under your extension project workspace:
 
-* Syntax highlighting
-* Language configuration
-* Bracket matching
-* Auto-closing pairs
-* Comment support
-* Snippets
-* Diagnostics (future)
-* IntelliSense (future)
-* LSP integration (future)
+\!\[feature X\]\(images/feature-x.png\)
 
-This project is separate from the Mapple compiler so editor tooling can evolve independently.
+> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
----
+## Requirements
 
-# Why This Exists
+If you have any requirements or dependencies, add a section describing those and how to install and configure them.
 
-Mapple is becoming large enough that development productivity matters.
+## Extension Settings
 
-Currently, `.mp` files are treated as plain text.
+Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
 
-This extension will allow:
+For example:
 
-```mapple
-let int age = 20;
+This extension contributes the following settings:
 
-age = age + 1;
+* `myExtension.enable`: Enable/disable this extension.
+* `myExtension.thing`: Set to `blah` to do something.
 
-print(age.str);
-```
+## Known Issues
 
-to be displayed with proper syntax highlighting and editor support.
+Calling out known issues can help limit users opening duplicate issues against your extension.
 
-Long term, the goal is for Mapple development to feel similar to writing Python, Java, or TypeScript inside VS Code.
+## Release Notes
 
----
+Users appreciate release notes as you update your extension.
 
-# Relationship To Mapple
+### 1.0.0
 
-Current Mapple compiler:
+Initial release of ...
 
-```text
-Mapple Source (.mp)
-        ↓
-Lexer
-        ↓
-Parser
-        ↓
-AST
-        ↓
-Semantic Analysis
-        ↓
-Python Code Generation
-        ↓
-Execution
-```
+### 1.0.1
 
-This extension does not compile code.
+Fixed issue #.
 
-Its responsibility is editor tooling only.
+### 1.1.0
+
+Added features X, Y, and Z.
 
 ---
 
-# Development Roadmap
+## Working with Markdown
 
-## Phase 1 - Basic Language Recognition
+You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
 
-Goal:
+* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
+* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
+* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
 
-VS Code recognizes `.mp` files as Mapple.
+## For more information
 
-Tasks:
+* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
+* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
-* Register `.mp` extension
-* Define language identifier
-* Add basic language configuration
-
-Success:
-
-Opening a `.mp` file automatically activates the extension.
-
----
-
-## Phase 2 - Syntax Highlighting
-
-Goal:
-
-Mapple code is colorized.
-
-Highlight:
-
-Keywords:
-
-```text
-let
-func
-class
-print
-input
-```
-
-Types:
-
-```text
-int
-num
-str
-char
-bool
-```
-
-Literals:
-
-```text
-123
-3.14
-"hello"
-'A'
-true
-false
-```
-
-Comments:
-
-```text
-//
-/* */
-```
-
-Success:
-
-Mapple code is visually distinguishable and readable.
-
----
-
-## Phase 3 - Editor Experience
-
-Goal:
-
-Make writing Mapple pleasant.
-
-Features:
-
-* Auto-close parentheses
-* Auto-close quotes
-* Auto-indent
-* Comment toggling
-* Bracket matching
-
-Success:
-
-Mapple behaves similarly to other supported languages.
-
----
-
-## Phase 4 - Snippets
-
-Goal:
-
-Reduce typing.
-
-Examples:
-
-Typing:
-
-```text
-let
-```
-
-expands to:
-
-```mapple
-let <type> <name> = ;
-```
-
-Typing:
-
-```text
-func
-```
-
-expands to:
-
-```mapple
-func FunctionName():
-    
-;
-```
-
-Success:
-
-Common Mapple structures can be generated quickly.
-
----
-
-## Phase 5 - Diagnostics
-
-Goal:
-
-Surface compiler errors inside VS Code.
-
-Examples:
-
-* Undeclared variables
-* Type mismatches
-* Invalid assignments
-
-Potential implementation:
-
-Run the Mapple compiler in the background and display diagnostics through VS Code APIs.
-
----
-
-## Phase 6 - Language Server (LSP)
-
-Goal:
-
-Provide advanced IDE features.
-
-Features:
-
-* Go to Definition
-* Find References
-* Rename Symbol
-* Hover Information
-* Auto-completion
-
-Success:
-
-Mapple development feels comparable to mainstream languages.
-
----
-
-# Suggested Technology Stack
-
-## Version 1
-
-TextMate Grammar
-
-Used for:
-
-* Syntax highlighting
-
-Files:
-
-```text
-syntaxes/mapple.tmLanguage.json
-```
-
----
-
-## Version 2
-
-VS Code Extension API
-
-Used for:
-
-* Language registration
-* Snippets
-* Diagnostics
-
-Files:
-
-```text
-package.json
-language-configuration.json
-```
-
----
-
-## Version 3
-
-Language Server Protocol (LSP)
-
-Used for:
-
-* IntelliSense
-* Symbol navigation
-* Refactoring
-
----
-
-# Repository Structure
-
-```text
-mapple-vscode-extension/
-
-├── README.md
-├── package.json
-├── language-configuration.json
-
-├── syntaxes/
-│   └── mapple.tmLanguage.json
-
-├── snippets/
-│   └── mapple.json
-
-└── examples/
-    └── sample.mp
-```
-
----
-
-# Prerequisites
-
-Required:
-
-* Node.js
-* npm
-* Visual Studio Code
-
-Recommended:
-
-* TypeScript
-* VS Code Extension Generator
-
-Install:
-
-```bash
-npm install -g yo generator-code
-```
-
-Generate extension:
-
-```bash
-yo code
-```
-
-Choose:
-
-```text
-New Language Support Extension
-```
-
-Language Name:
-
-```text
-Mapple
-```
-
-Language ID:
-
-```text
-mapple
-```
-
-File Extension:
-
-```text
-.mp
-```
-
----
-
-# Definition Of Done (v1)
-
-A user installs the extension.
-
-Opening:
-
-```mapple
-let int age = 20;
-
-print(age.str);
-```
-
-automatically:
-
-* Recognizes the file as Mapple
-* Applies syntax highlighting
-* Supports comments
-* Supports indentation
-* Supports bracket matching
-
-At that point, Mapple has its first editor integration.
+**Enjoy!**

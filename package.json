@@ -1,0 +1,25 @@
+{
+  "name": "mapple-language-support",
+  "displayName": "Mapple",
+  "description": "Official Mapple extension",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.125.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "mapple",
+      "aliases": ["Mapple", "mapple"],
+      "extensions": [".mp"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "mapple",
+      "scopeName": "main.mp",
+      "path": "./syntaxes/mapple.tmLanguage.json"
+    }]
+  }
+}
