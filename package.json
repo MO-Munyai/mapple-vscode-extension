@@ -18,7 +18,7 @@
     }],
     "grammars": [{
       "language": "mapple",
-      "scopeName": "main.mp",
+      "scopeName": "source.mapple",
       "path": "./syntaxes/mapple.tmLanguage.json"
     }]
   }

@@ -1,32 +1,91 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Mapple",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.mapple",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.mapple",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.mapple",
-					"match": "\\\\."
-				}
-			]
-		}
-	},
-	"scopeName": "main.mp"
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+
+  "name": "Mapple",
+  "scopeName": "source.mapple",
+
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#keywords" },
+    { "include": "#types" },
+    { "include": "#booleans" },
+    { "include": "#numbers" },
+    { "include": "#strings" },
+    { "include": "#chars" },
+	{ "include": "#conversions" }
+  ],
+
+  "repository": {
+
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.mapple",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.mapple",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.mapple",
+          "match": "\\b(let|func|class|print|input|return)\\b"
+        }
+      ]
+    },
+
+    "types": {
+      "patterns": [
+        {
+          "name": "storage.type.mapple",
+          "match": "\\b(int|num|str|char|bool)\\b"
+        }
+      ]
+    },
+
+    "booleans": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.mapple",
+          "match": "\\b(true|false)\\b"
+        }
+      ]
+    },
+
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.mapple",
+          "match": "\\b\\d+(\\.\\d+)?\\b"
+        }
+      ]
+    },
+
+    "strings": {
+      "name": "string.quoted.double.mapple",
+      "begin": "\"",
+      "end": "\""
+    },
+
+    "chars": {
+      "name": "constant.character.mapple",
+      "begin": "'",
+      "end": "'"
+    },
+
+	"conversions": {
+		"patterns": [
+			{
+				"name" : "support.function.conversion.mapple",
+				"match" : "\\.(str|int|num|char|bool)\\b"
+			}
+		]
+	}
+  }
 }
